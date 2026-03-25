@@ -323,7 +323,7 @@ body::before {
 .tl-item::before {
   content: '';
   position: absolute;
-  left: 64px;
+  left: 72px;
   top: 22px;
   width: 17px;
   height: 17px;
@@ -350,6 +350,7 @@ body::before {
   line-height: 1.4;
   color: var(--text-dim);
   padding-right: 8px;
+  z-index: 2;
 }
 
 .tl-card {
@@ -687,7 +688,7 @@ button.scroll-hint:focus { outline: none; }
   .period-divider { padding-left: 70px; }
   .timeline::before { left: 52px; }
   .tl-item { padding-left: 70px; } /* 52px time col + 18px gap */
-  .tl-item::before { left: 44px; }
+  .tl-item::before { left: 52px; }
   .tl-time { width: 52px; font-size: 0.64rem; padding-right: 4px; }
   .budget-grid { grid-template-columns: 1fr; }
   .tl-card { padding: 16px 18px; }
