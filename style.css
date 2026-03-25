@@ -150,14 +150,11 @@ body::before {
 
 /* ── SCROLL INDICATOR ── */
 .scroll-hint {
-  position: absolute;
-  bottom: 220px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  margin-top: 36px;
   color: var(--neon-yellow);
   font-size: 0.78rem;
   letter-spacing: 0.2em;
