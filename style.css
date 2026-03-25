@@ -595,6 +595,7 @@ footer {
 button.scroll-hint {
   font-family: inherit;
   cursor: pointer;
+  background: transparent;
 }
 button.scroll-hint:focus { outline: none; }
 
