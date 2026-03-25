@@ -1,12 +1,21 @@
-// 向下探索 → show content view
+// Page navigation
+function goTo(page) {
+  document.body.dataset.page = page;
+  // reset scroll on the newly shown view
+  var viewMap = { itinerary: 'view-itinerary', budget: 'view-budget' };
+  if (viewMap[page]) document.getElementById(viewMap[page]).scrollTop = 0;
+}
+
+// Hero → Itinerary
 document.getElementById('scroll-btn').addEventListener('click', function () {
-  document.body.classList.add('content-mode');
-  document.getElementById('view-content').scrollTop = 0;
+  goTo('itinerary');
 });
 
-// 回到首頁 → show hero view
-document.getElementById('back-btn').addEventListener('click', function () {
-  document.body.classList.remove('content-mode');
+// Nav buttons (prev/next)
+document.querySelectorAll('.nav-btn[data-to]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    goTo(this.dataset.to);
+  });
 });
 
 // Tab switching
