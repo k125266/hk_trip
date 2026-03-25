@@ -39,7 +39,7 @@ body {
 #view-itinerary,
 #view-budget {
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: clip; /* clip, not hidden — avoids creating a scroll container */
 }
 
 /* default: hero visible, others non-interactive */
