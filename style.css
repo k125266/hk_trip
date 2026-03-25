@@ -113,9 +113,10 @@ body::before {
 
 .hero-subtitle {
   font-size: clamp(0.85rem, 2vw, 1.05rem);
-  color: var(--text-dim);
+  color: #e0cfa8;
   letter-spacing: 0.15em;
   margin-bottom: 48px;
+  text-shadow: 0 0 8px rgba(224,207,168,0.4);
 }
 
 .hero-divider {
@@ -594,6 +595,7 @@ footer {
 button.scroll-hint {
   font-family: inherit;
   cursor: pointer;
+  background: transparent;
 }
 button.scroll-hint:focus { outline: none; }
 
