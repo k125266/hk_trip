@@ -1,6 +1,12 @@
-// Smooth scroll from hero button
+// 向下探索 → show content view
 document.getElementById('scroll-btn').addEventListener('click', function () {
-  document.getElementById('itinerary').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.body.classList.add('content-mode');
+  document.getElementById('view-content').scrollTop = 0;
+});
+
+// 回到首頁 → show hero view
+document.getElementById('back-btn').addEventListener('click', function () {
+  document.body.classList.remove('content-mode');
 });
 
 // Tab switching
