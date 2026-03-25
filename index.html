@@ -544,6 +544,67 @@
       color: var(--text-main);
     }
 
+    /* ── TABS ── */
+    .tabs-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px 20px;
+    }
+
+    .tab-bar {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+      gap: 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: var(--text-dim);
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      padding: 12px 22px 14px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
+      margin-bottom: -1px;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: var(--text-main); }
+    .tab-btn.active {
+      color: var(--neon-yellow);
+      border-bottom-color: var(--neon-yellow);
+      text-shadow: 0 0 10px rgba(255,215,0,0.5);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active {
+      display: block;
+      animation: tabFadeIn 0.35s ease;
+    }
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* scroll-hint as button */
+    button.scroll-hint {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: inherit;
+      letter-spacing: inherit;
+      cursor: pointer;
+    }
+    button.scroll-hint:focus { outline: none; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       .period-divider { padding-left: 70px; }
@@ -576,355 +637,356 @@
       <span class="tag tag-pink">🎨 PMQ 元創方</span>
       <span class="tag tag-blue">🌃 維多利亞港夜景</span>
     </div>
-    <div class="scroll-hint">向下探索</div>
+    <button class="scroll-hint" id="scroll-btn">向下探索</button>
   </header>
 
-  <!-- ══ TIMELINE ══ -->
-  <main class="section">
+  <!-- ══ ITINERARY TABS ══ -->
+  <main id="itinerary" class="tabs-section">
     <div class="section-header">
       <div class="section-label">Day Schedule</div>
       <h2 class="section-title">完美掌控時間與體力的一天</h2>
     </div>
 
-    <div class="timeline">
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="morning">🎒 上午</button>
+      <button class="tab-btn" data-tab="noon">🥢 中午</button>
+      <button class="tab-btn" data-tab="afternoon">🛍️ 下午</button>
+      <button class="tab-btn" data-tab="evening">🎨 傍晚</button>
+      <button class="tab-btn" data-tab="night">🥣 晚上</button>
+    </div>
 
-      <!-- ── 上午 ── -->
-      <div class="period-divider">
-        <span class="period-label morning">🎒 上午　Morning</span>
-        <span class="period-line" style="color:var(--neon-yellow)"></span>
-      </div>
+    <!-- ── 上午 ── -->
+    <div class="tab-panel active" id="tab-morning">
+      <div class="timeline">
 
-      <!-- 1 -->
-      <div class="tl-item color-yellow">
-        <div class="tl-time">10:00<br/>—<br/>11:30</div>
-        <div class="tl-card">
-          <div class="card-header">
-            <div class="card-emoji">✈️</div>
-            <div class="card-meta">
-              <div class="card-location">Airport → Tsim Sha Tsui · 機場 → 尖沙咀</div>
-              <div class="card-title">【交通】香港機場 ➔ 瑰麗酒店</div>
+        <div class="tl-item color-yellow">
+          <div class="tl-time">10:00<br/>—<br/>11:30</div>
+          <div class="tl-card">
+            <div class="card-header">
+              <div class="card-emoji">✈️</div>
+              <div class="card-meta">
+                <div class="card-location">Airport → Tsim Sha Tsui · 機場 → 尖沙咀</div>
+                <div class="card-title">【交通】香港機場 ➔ 瑰麗酒店</div>
+              </div>
             </div>
-          </div>
-          <div class="info-rows">
-            <div class="info-row">
-              <span class="info-tag route">🚇 路線</span>
-              <span class="info-row-text">搭「<strong>機場快線</strong>」到【<strong>九龍站</strong>】，出站後直接轉搭計程車／Uber 到飯店。</span>
-            </div>
-            <div class="info-row">
-              <span class="info-tag cost">💰 費用</span>
-              <span class="info-row-text">機場快線約 <strong>$105</strong> + 車資約 <strong>$40–50</strong></span>
-            </div>
-            <div class="info-row">
-              <span class="info-tag tip">💡 提醒</span>
-              <span class="info-row-text">帶著大行李千萬別去擠地鐵，從九龍站搭車去飯店最省力。</span>
+            <div class="info-rows">
+              <div class="info-row">
+                <span class="info-tag route">🚇 路線</span>
+                <span class="info-row-text">搭「<strong>機場快線</strong>」到【<strong>九龍站</strong>】，出站後直接轉搭計程車／Uber 到飯店。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag cost">💰 費用</span>
+                <span class="info-row-text">機場快線約 <strong>$105</strong> + 車資約 <strong>$40–50</strong></span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag tip">💡 提醒</span>
+                <span class="info-row-text">帶著大行李千萬別去擠地鐵，從九龍站搭車去飯店最省力。</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- 2 -->
-      <div class="tl-item color-pink">
-        <div class="tl-time">11:30<br/>—<br/>12:15</div>
-        <div class="tl-card">
-          <div class="card-header">
-            <div class="card-emoji">🥐</div>
-            <div class="card-meta">
-              <div class="card-location">Tsim Sha Tsui · 尖沙咀</div>
-              <div class="card-title">【購物】Hashtag B（尖沙咀店）</div>
+        <div class="tl-item color-pink">
+          <div class="tl-time">11:30<br/>—<br/>12:15</div>
+          <div class="tl-card">
+            <div class="card-header">
+              <div class="card-emoji">🥐</div>
+              <div class="card-meta">
+                <div class="card-location">Tsim Sha Tsui · 尖沙咀</div>
+                <div class="card-title">【購物】Hashtag B（尖沙咀店）</div>
+              </div>
             </div>
-          </div>
-          <div class="card-body">
-            全港最紅的「拿破崙焦糖千層蛋撻」——熱騰騰出爐，隨時都在大排長龍！
-          </div>
-          <div class="info-rows">
-            <div class="info-row">
-              <span class="info-tag route">🚇 路線</span>
-              <span class="info-row-text">從飯店步行約 <strong>10 分鐘</strong>至加拿分道。</span>
+            <div class="card-body">
+              全港最紅的「拿破崙焦糖千層蛋撻」——熱騰騰出爐，隨時都在大排長龍！
             </div>
-            <div class="info-row">
-              <span class="info-tag cost">💰 費用</span>
-              <span class="info-row-text">千層蛋撻約 <strong>$18／顆</strong></span>
+            <div class="info-rows">
+              <div class="info-row">
+                <span class="info-tag route">🚇 路線</span>
+                <span class="info-row-text">從飯店步行約 <strong>10 分鐘</strong>至加拿分道。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag cost">💰 費用</span>
+                <span class="info-row-text">千層蛋撻約 <strong>$18／顆</strong></span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag tip">💡 提醒</span>
+                <span class="info-row-text">這家隨時都在排隊，拿到熱騰騰的蛋撻請先忍住，因為中午的點心會吃很飽！</span>
+              </div>
             </div>
-            <div class="info-row">
-              <span class="info-tag tip">💡 提醒</span>
-              <span class="info-row-text">這家隨時都在排隊，拿到熱騰騰的蛋撻請先忍住，因為中午的點心會吃很飽！</span>
+            <div class="card-pills">
+              <span class="pill highlight">焦糖千層蛋撻</span>
+              <span class="pill">步行可達</span>
             </div>
-          </div>
-          <div class="card-pills">
-            <span class="pill highlight">焦糖千層蛋撻</span>
-            <span class="pill">步行可達</span>
           </div>
         </div>
-      </div>
 
-      <!-- ── 中午 ── -->
-      <div class="period-divider">
-        <span class="period-label noon">🥢 中午　Noon</span>
-        <span class="period-line" style="color:var(--neon-red)"></span>
       </div>
+    </div>
 
-      <!-- 3 (原 2) -->
-      <div class="tl-item color-red">
-        <div class="tl-time">12:30<br/>—<br/>13:30</div>
-        <div class="tl-card">
-          <div class="card-header">
-            <div class="card-emoji">🥟</div>
-            <div class="card-meta">
-              <div class="card-location">Prince Edward · 太子</div>
-              <div class="card-title">【午餐】一點心 One Dim Sum</div>
+    <!-- ── 中午 ── -->
+    <div class="tab-panel" id="tab-noon">
+      <div class="timeline">
+
+        <div class="tl-item color-red">
+          <div class="tl-time">12:30<br/>—<br/>13:30</div>
+          <div class="tl-card">
+            <div class="card-header">
+              <div class="card-emoji">🥟</div>
+              <div class="card-meta">
+                <div class="card-location">Prince Edward · 太子</div>
+                <div class="card-title">【午餐】一點心 One Dim Sum</div>
+              </div>
             </div>
-          </div>
-          <div class="card-body">
-            米其林推薦平價港點，阿姨服務親切、高評分，必吃道地蝦餃與燒賣。
-          </div>
-          <div class="info-rows">
-            <div class="info-row">
-              <span class="info-tag route">🚇 路線</span>
-              <span class="info-row-text">地鐵【<strong>尖沙咀站</strong>】搭紅線 ➔【<strong>太子站</strong>】A 出口，步行 2 分鐘。</span>
+            <div class="card-body">
+              米其林推薦平價港點，阿姨服務親切、高評分，必吃道地蝦餃與燒賣。
             </div>
-            <div class="info-row">
-              <span class="info-tag cost">💰 費用</span>
-              <span class="info-row-text">車資約 <strong>$6</strong> + 餐費約 <strong>$80–120</strong></span>
+            <div class="info-rows">
+              <div class="info-row">
+                <span class="info-tag route">🚇 路線</span>
+                <span class="info-row-text">地鐵【<strong>尖沙咀站</strong>】搭紅線 ➔【<strong>太子站</strong>】A 出口，步行 2 分鐘。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag cost">💰 費用</span>
+                <span class="info-row-text">車資約 <strong>$6</strong> + 餐費約 <strong>$80–120</strong></span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag tip">💡 提醒</span>
+                <span class="info-row-text">香港點心份量很扎實，一個人點 <strong>3–4 道</strong>通常就是極限了。餐廳冷氣開很強，記得帶件薄外套。</span>
+              </div>
             </div>
-            <div class="info-row">
-              <span class="info-tag tip">💡 提醒</span>
-              <span class="info-row-text">香港點心份量很扎實，一個人點 <strong>3–4 道</strong>通常就是極限了。餐廳冷氣開很強，記得帶件薄外套。</span>
+            <div class="card-pills">
+              <span class="pill highlight">必吃：蝦餃 · 燒賣</span>
+              <span class="pill">米其林推薦</span>
             </div>
-          </div>
-          <div class="card-pills">
-            <span class="pill highlight">必吃：蝦餃 · 燒賣</span>
-            <span class="pill">米其林推薦</span>
           </div>
         </div>
-      </div>
 
-      <!-- ── 下午 ── -->
-      <div class="period-divider">
-        <span class="period-label" style="color:var(--neon-teal);border-color:rgba(0,229,204,0.5);text-shadow:0 0 10px rgba(0,229,204,0.6);box-shadow:0 0 14px rgba(0,229,204,0.15)">🛍️ 下午　Afternoon</span>
-        <span class="period-line" style="color:var(--neon-teal)"></span>
       </div>
+    </div>
 
-      <!-- 下午 1 -->
-      <div class="tl-item color-teal">
-        <div class="tl-time">13:30<br/>—<br/>14:15</div>
-        <div class="tl-card">
-          <div class="card-header">
-            <div class="card-emoji">🏛️</div>
-            <div class="card-meta">
-              <div class="card-location">Mong Kok · 旺角</div>
-              <div class="card-title">【逛街】618上海街</div>
+    <!-- ── 下午 ── -->
+    <div class="tab-panel" id="tab-afternoon">
+      <div class="timeline">
+
+        <div class="tl-item color-teal">
+          <div class="tl-time">13:30<br/>—<br/>14:15</div>
+          <div class="tl-card">
+            <div class="card-header">
+              <div class="card-emoji">🏛️</div>
+              <div class="card-meta">
+                <div class="card-location">Mong Kok · 旺角</div>
+                <div class="card-title">【逛街】618上海街</div>
+              </div>
             </div>
-          </div>
-          <div class="card-body">
-            百年唐樓保留了老香港的花磚與復古舊式招牌，充滿時代感的字體和版面編排，是絕佳的設計靈感素材寶庫。
-          </div>
-          <div class="info-rows">
-            <div class="info-row">
-              <span class="info-tag route">🚇 路線</span>
-              <span class="info-row-text">從一點心往旺角方向<strong>散步約 10 分鐘</strong>。</span>
+            <div class="card-body">
+              百年唐樓保留了老香港的花磚與復古舊式招牌，充滿時代感的字體和版面編排，是絕佳的設計靈感素材寶庫。
             </div>
-            <div class="info-row">
-              <span class="info-tag cost">💰 費用</span>
-              <span class="info-row-text"><strong>免費參觀</strong>，購物另計。</span>
+            <div class="info-rows">
+              <div class="info-row">
+                <span class="info-tag route">🚇 路線</span>
+                <span class="info-row-text">從一點心往旺角方向<strong>散步約 10 分鐘</strong>。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag cost">💰 費用</span>
+                <span class="info-row-text"><strong>免費參觀</strong>，購物另計。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag tip">💡 提醒</span>
+                <span class="info-row-text">那些復古招牌、花磚非常值得拍下來，當作未來的<strong>設計靈感素材</strong>！</span>
+              </div>
             </div>
-            <div class="info-row">
-              <span class="info-tag tip">💡 提醒</span>
-              <span class="info-row-text">那些復古招牌、花磚非常值得拍下來，當作未來的<strong>設計靈感素材</strong>！</span>
+            <div class="card-pills">
+              <span class="pill highlight">老香港花磚 · 復古招牌</span>
+              <span class="pill">免費入場</span>
             </div>
-          </div>
-          <div class="card-pills">
-            <span class="pill highlight">老香港花磚 · 復古招牌</span>
-            <span class="pill">免費入場</span>
           </div>
         </div>
-      </div>
 
-      <!-- 下午 2 -->
-      <div class="tl-item color-yellow">
-        <div class="tl-time">14:15<br/>—<br/>15:15</div>
-        <div class="tl-card">
-          <div class="card-header">
-            <div class="card-emoji">🎲</div>
-            <div class="card-meta">
-              <div class="card-location">Mong Kok · 旺角</div>
-              <div class="card-title">【逛街】T.O.P This is Our Place</div>
+        <div class="tl-item color-yellow">
+          <div class="tl-time">14:15<br/>—<br/>15:15</div>
+          <div class="tl-card">
+            <div class="card-header">
+              <div class="card-emoji">🎲</div>
+              <div class="card-meta">
+                <div class="card-location">Mong Kok · 旺角</div>
+                <div class="card-title">【逛街】T.O.P This is Our Place</div>
+              </div>
             </div>
-          </div>
-          <div class="card-body">
-            旺角站正上方的潮玩聖地，集結多間選物店，可以隨手抽個盲盒——說不定能找到 <strong>LULU 豬公仔</strong>！
-          </div>
-          <div class="info-rows">
-            <div class="info-row">
-              <span class="info-tag route">🚇 路線</span>
-              <span class="info-row-text">步行約 <strong>3 分鐘</strong>即可抵達（就在<strong>旺角站上方</strong>）。</span>
+            <div class="card-body">
+              旺角站正上方的潮玩聖地，集結多間選物店，可以隨手抽個盲盒——說不定能找到 <strong>LULU 豬公仔</strong>！
             </div>
-            <div class="info-row">
-              <span class="info-tag cost">💰 費用</span>
-              <span class="info-row-text">盲盒／玩具約 <strong>$80–150</strong> 不等。</span>
+            <div class="info-rows">
+              <div class="info-row">
+                <span class="info-tag route">🚇 路線</span>
+                <span class="info-row-text">步行約 <strong>3 分鐘</strong>即可抵達（就在<strong>旺角站上方</strong>）。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag cost">💰 費用</span>
+                <span class="info-row-text">盲盒／玩具約 <strong>$80–150</strong> 不等。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag tip">💡 提醒</span>
+                <span class="info-row-text">這裡有幾間很棒的潮玩選物店，說不定能找到 <strong>LULU 豬公仔</strong>！</span>
+              </div>
             </div>
-            <div class="info-row">
-              <span class="info-tag tip">💡 提醒</span>
-              <span class="info-row-text">這裡有幾間很棒的潮玩選物店，說不定能找到 <strong>LULU 豬公仔</strong>！</span>
+            <div class="card-pills">
+              <span class="pill highlight">抽盲盒</span>
+              <span class="pill">潮玩選物</span>
+              <span class="pill">旺角站直達</span>
             </div>
-          </div>
-          <div class="card-pills">
-            <span class="pill highlight">抽盲盒</span>
-            <span class="pill">潮玩選物</span>
-            <span class="pill">旺角站直達</span>
           </div>
         </div>
-      </div>
 
-      <!-- ── 傍晚 ── -->
-      <div class="period-divider">
-        <span class="period-label" style="color:var(--neon-pink);border-color:rgba(255,79,163,0.5);text-shadow:0 0 10px rgba(255,79,163,0.6);box-shadow:0 0 14px rgba(255,79,163,0.15)">🎨 傍晚　Evening</span>
-        <span class="period-line" style="color:var(--neon-pink)"></span>
       </div>
+    </div>
 
-      <!-- 傍晚 1 -->
-      <div class="tl-item color-pink">
-        <div class="tl-time">15:15<br/>—<br/>17:30</div>
-        <div class="tl-card">
-          <div class="card-header">
-            <div class="card-emoji">🎨</div>
-            <div class="card-meta">
-              <div class="card-location">Sheung Wan · 上環</div>
-              <div class="card-title">【觀光】PMQ 元創方</div>
+    <!-- ── 傍晚 ── -->
+    <div class="tab-panel" id="tab-evening">
+      <div class="timeline">
+
+        <div class="tl-item color-pink">
+          <div class="tl-time">15:15<br/>—<br/>17:30</div>
+          <div class="tl-card">
+            <div class="card-header">
+              <div class="card-emoji">🎨</div>
+              <div class="card-meta">
+                <div class="card-location">Sheung Wan · 上環</div>
+                <div class="card-title">【觀光】PMQ 元創方</div>
+              </div>
             </div>
-          </div>
-          <div class="card-body">
-            前警察宿舍百年建築，聚集大量在地獨立設計師文創商品。走廊陰涼舒適，把早上買的 <strong>Hashtag B 蛋撻</strong>拿出來當下午茶剛剛好！
-          </div>
-          <div class="info-rows">
-            <div class="info-row">
-              <span class="info-tag route">🚇 路線</span>
-              <span class="info-row-text">地鐵【<strong>旺角站</strong>】搭紅線過海 ➔【<strong>金鐘站</strong>】轉藍線 ➔【<strong>上環站</strong>】E2 出口。</span>
+            <div class="card-body">
+              前警察宿舍百年建築，聚集大量在地獨立設計師文創商品。走廊陰涼舒適，把早上買的 <strong>Hashtag B 蛋撻</strong>拿出來當下午茶剛剛好！
             </div>
-            <div class="info-row">
-              <span class="info-tag cost">💰 費用</span>
-              <span class="info-row-text">車資約 <strong>$15</strong>，入場<strong>免費</strong>。</span>
+            <div class="info-rows">
+              <div class="info-row">
+                <span class="info-tag route">🚇 路線</span>
+                <span class="info-row-text">地鐵【<strong>旺角站</strong>】搭紅線過海 ➔【<strong>金鐘站</strong>】轉藍線 ➔【<strong>上環站</strong>】E2 出口。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag cost">💰 費用</span>
+                <span class="info-row-text">車資約 <strong>$15</strong>，入場<strong>免費</strong>。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag tip">💡 提醒</span>
+                <span class="info-row-text">從上環站走到 PMQ 有一小段<strong>微上坡</strong>，建議穿好走的運動鞋。獨立品牌很多，多預留一點時間慢慢逛！</span>
+              </div>
             </div>
-            <div class="info-row">
-              <span class="info-tag tip">💡 提醒</span>
-              <span class="info-row-text">從上環站走到 PMQ 有一小段<strong>微上坡</strong>，建議穿好走的運動鞋。獨立品牌很多，多預留一點時間慢慢逛！</span>
+            <div class="card-pills">
+              <span class="pill highlight">蛋撻下午茶時刻</span>
+              <span class="pill">百年歷史建築</span>
+              <span class="pill">本地設計師</span>
             </div>
-          </div>
-          <div class="card-pills">
-            <span class="pill highlight">蛋撻下午茶時刻</span>
-            <span class="pill">百年歷史建築</span>
-            <span class="pill">本地設計師</span>
           </div>
         </div>
-      </div>
 
-      <!-- ── 晚上 ── -->
-      <div class="period-divider">
-        <span class="period-label" style="color:var(--neon-blue);border-color:rgba(0,180,255,0.5);text-shadow:0 0 10px rgba(0,180,255,0.6);box-shadow:0 0 14px rgba(0,180,255,0.15)">🥣 晚上　Night</span>
-        <span class="period-line" style="color:var(--neon-blue)"></span>
       </div>
+    </div>
 
-      <!-- 晚上 1 -->
-      <div class="tl-item color-blue">
-        <div class="tl-time">17:30<br/>—<br/>18:30</div>
-        <div class="tl-card">
-          <div class="card-header">
-            <div class="card-emoji">🥣</div>
-            <div class="card-meta">
-              <div class="card-location">Sheung Wan · 上環</div>
-              <div class="card-title">【晚餐】生記粥品專家</div>
+    <!-- ── 晚上 ── -->
+    <div class="tab-panel" id="tab-night">
+      <div class="timeline">
+
+        <div class="tl-item color-blue">
+          <div class="tl-time">17:30<br/>—<br/>18:30</div>
+          <div class="tl-card">
+            <div class="card-header">
+              <div class="card-emoji">🥣</div>
+              <div class="card-meta">
+                <div class="card-location">Sheung Wan · 上環</div>
+                <div class="card-title">【晚餐】生記粥品專家</div>
+              </div>
             </div>
-          </div>
-          <div class="card-body">
-            老字號暖胃粥品，份量紮實，料多味香，是港人的日常靈魂食物。
-          </div>
-          <div class="info-rows">
-            <div class="info-row">
-              <span class="info-tag route">🚇 路線</span>
-              <span class="info-row-text">從 PMQ 散步下坡，約 <strong>8 分鐘</strong>可達。</span>
+            <div class="card-body">
+              老字號暖胃粥品，份量紮實，料多味香，是港人的日常靈魂食物。
             </div>
-            <div class="info-row">
-              <span class="info-tag cost">💰 費用</span>
-              <span class="info-row-text">約 <strong>$60–80</strong></span>
+            <div class="info-rows">
+              <div class="info-row">
+                <span class="info-tag route">🚇 路線</span>
+                <span class="info-row-text">從 PMQ 散步下坡，約 <strong>8 分鐘</strong>可達。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag cost">💰 費用</span>
+                <span class="info-row-text">約 <strong>$60–80</strong></span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag tip">💡 提醒</span>
+                <span class="info-row-text">份量偏大，可以跟阿姨說要「<strong>袖珍碗</strong>」或「<strong>小碗</strong>」，還要留肚子吃甜點！</span>
+              </div>
             </div>
-            <div class="info-row">
-              <span class="info-tag tip">💡 提醒</span>
-              <span class="info-row-text">份量偏大，可以跟阿姨說要「<strong>袖珍碗</strong>」或「<strong>小碗</strong>」，還要留肚子吃甜點！</span>
+            <div class="card-pills">
+              <span class="pill highlight">老字號暖胃粥</span>
+              <span class="pill">步行可達</span>
             </div>
-          </div>
-          <div class="card-pills">
-            <span class="pill highlight">老字號暖胃粥</span>
-            <span class="pill">步行可達</span>
           </div>
         </div>
-      </div>
 
-      <!-- 晚上 2 -->
-      <div class="tl-item color-teal">
-        <div class="tl-time">18:30<br/>—<br/>20:00</div>
-        <div class="tl-card">
-          <div class="card-header">
-            <div class="card-emoji">🍮</div>
-            <div class="card-meta">
-              <div class="card-location">Causeway Bay · 銅鑼灣</div>
-              <div class="card-title">【甜點】聰。C Dessert</div>
+        <div class="tl-item color-teal">
+          <div class="tl-time">18:30<br/>—<br/>20:00</div>
+          <div class="tl-card">
+            <div class="card-header">
+              <div class="card-emoji">🍮</div>
+              <div class="card-meta">
+                <div class="card-location">Causeway Bay · 銅鑼灣</div>
+                <div class="card-title">【甜點】聰。C Dessert</div>
+              </div>
             </div>
-          </div>
-          <div class="card-body">
-            殿堂級港式甜品，完美守住九點後不進食的黃金底線！
-          </div>
-          <div class="info-rows">
-            <div class="info-row">
-              <span class="info-tag route">🚇 路線</span>
-              <span class="info-row-text">地鐵【<strong>上環站</strong>】搭藍線 ➔【<strong>銅鑼灣／灣仔站</strong>】下車步行。</span>
+            <div class="card-body">
+              殿堂級港式甜品，完美守住九點後不進食的黃金底線！
             </div>
-            <div class="info-row">
-              <span class="info-tag cost">💰 費用</span>
-              <span class="info-row-text">車資約 <strong>$6</strong> + 甜品約 <strong>$50–70</strong></span>
+            <div class="info-rows">
+              <div class="info-row">
+                <span class="info-tag route">🚇 路線</span>
+                <span class="info-row-text">地鐵【<strong>上環站</strong>】搭藍線 ➔【<strong>銅鑼灣／灣仔站</strong>】下車步行。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag cost">💰 費用</span>
+                <span class="info-row-text">車資約 <strong>$6</strong> + 甜品約 <strong>$50–70</strong></span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag tip">💡 提醒</span>
+                <span class="info-row-text">必點<strong>龍眼椰果冰</strong>或<strong>水果豆腐花</strong>。吃完差不多快八點，完美守住九點後不進食的底線！</span>
+              </div>
             </div>
-            <div class="info-row">
-              <span class="info-tag tip">💡 提醒</span>
-              <span class="info-row-text">必點<strong>龍眼椰果冰</strong>或<strong>水果豆腐花</strong>。吃完差不多快八點，完美守住九點後不進食的底線！</span>
+            <div class="card-pills">
+              <span class="pill highlight">龍眼椰果冰</span>
+              <span class="pill highlight">水果豆腐花</span>
             </div>
-          </div>
-          <div class="card-pills">
-            <span class="pill highlight">龍眼椰果冰</span>
-            <span class="pill highlight">水果豆腐花</span>
           </div>
         </div>
-      </div>
 
-      <!-- 晚上 3 — 收班回飯店 -->
-      <div class="tl-item color-yellow">
-        <div class="tl-time">20:00<br/>之後</div>
-        <div class="tl-card">
-          <div class="card-header">
-            <div class="card-emoji">🌃</div>
-            <div class="card-meta">
-              <div class="card-location">Tsim Sha Tsui · 尖沙咀</div>
-              <div class="card-title">完美收班 · 回瑰麗酒店</div>
+        <div class="tl-item color-yellow">
+          <div class="tl-time">20:00<br/>之後</div>
+          <div class="tl-card">
+            <div class="card-header">
+              <div class="card-emoji">🌃</div>
+              <div class="card-meta">
+                <div class="card-location">Tsim Sha Tsui · 尖沙咀</div>
+                <div class="card-title">完美收班 · 回瑰麗酒店</div>
+              </div>
             </div>
-          </div>
-          <div class="card-body">
-            帶著滿滿的購物戰利品與甜點幸福感，優雅地結束完美的香港一日遊。
-          </div>
-          <div class="info-rows">
-            <div class="info-row">
-              <span class="info-tag route">🚇 路線</span>
-              <span class="info-row-text">地鐵【<strong>銅鑼灣／灣仔站</strong>】搭藍線 ➔【<strong>金鐘站</strong>】轉紅線 ➔【<strong>尖沙咀站</strong>】，步行回瑰麗酒店。</span>
+            <div class="card-body">
+              帶著滿滿的購物戰利品與甜點幸福感，優雅地結束完美的香港一日遊。
             </div>
-            <div class="info-row">
-              <span class="info-tag cost">💰 費用</span>
-              <span class="info-row-text">車資約 <strong>$12</strong></span>
+            <div class="info-rows">
+              <div class="info-row">
+                <span class="info-tag route">🚇 路線</span>
+                <span class="info-row-text">地鐵【<strong>銅鑼灣／灣仔站</strong>】搭藍線 ➔【<strong>金鐘站</strong>】轉紅線 ➔【<strong>尖沙咀站</strong>】，步行回瑰麗酒店。</span>
+              </div>
+              <div class="info-row">
+                <span class="info-tag cost">💰 費用</span>
+                <span class="info-row-text">車資約 <strong>$12</strong></span>
+              </div>
             </div>
-          </div>
-          <div class="card-pills">
-            <span class="pill highlight">維港夜景</span>
-            <span class="pill">步行回飯店</span>
+            <div class="card-pills">
+              <span class="pill highlight">維港夜景</span>
+              <span class="pill">步行回飯店</span>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div><!-- /timeline -->
+      </div>
+    </div>
+
   </main>
 
   <!-- ══ BUDGET & TIPS ══ -->
@@ -989,5 +1051,22 @@
     <div class="footer-sub">April 7, 2025 · Solo Trip · Hong Kong Rosewood</div>
   </footer>
 
+  <script>
+    // Smooth scroll from hero button
+    document.getElementById('scroll-btn').addEventListener('click', function () {
+      document.getElementById('itinerary').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var tab = this.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+        document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
+        this.classList.add('active');
+        document.getElementById('tab-' + tab).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
