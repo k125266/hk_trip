@@ -1,3 +1,15 @@
+// Landscape rotate prompt
+var rotateEl = document.querySelector('.rotate-prompt');
+function checkOrientation() {
+  var isLandscape = window.innerWidth > window.innerHeight && window.innerHeight < 500;
+  rotateEl.classList.toggle('visible', isLandscape);
+}
+checkOrientation();
+window.addEventListener('resize', checkOrientation);
+window.addEventListener('orientationchange', function () {
+  setTimeout(checkOrientation, 100);
+});
+
 // Page navigation
 function goTo(page) {
   document.body.dataset.page = page;
