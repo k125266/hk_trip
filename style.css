@@ -314,11 +314,9 @@ body::before {
 }
 
 .tl-item {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 0 28px;
   margin-bottom: 40px;
   position: relative;
+  padding-left: 100px; /* 72px time col + 28px gap */
 }
 
 /* dot on the line */
@@ -342,8 +340,11 @@ body::before {
 .tl-item.color-blue::before   { border-color: var(--neon-blue);   box-shadow: 0 0 12px var(--neon-blue); }
 
 .tl-time {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 72px;
   text-align: right;
-  padding-top: 16px;
   font-size: 0.72rem;
   letter-spacing: 0.05em;
   line-height: 1.4;
@@ -359,7 +360,6 @@ body::before {
   position: relative;
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
-  min-width: 0; /* prevent grid blowout from long text */
 }
 .tl-card:hover {
   transform: translateY(-3px);
@@ -686,9 +686,9 @@ button.scroll-hint:focus { outline: none; }
 @media (max-width: 600px) {
   .period-divider { padding-left: 70px; }
   .timeline::before { left: 52px; }
-  .tl-item { grid-template-columns: 52px 1fr; gap: 0 18px; }
+  .tl-item { padding-left: 70px; } /* 52px time col + 18px gap */
   .tl-item::before { left: 44px; }
-  .tl-time { font-size: 0.64rem; padding-right: 4px; }
+  .tl-time { width: 52px; font-size: 0.64rem; padding-right: 4px; }
   .budget-grid { grid-template-columns: 1fr; }
   .tl-card { padding: 16px 18px; }
 }
