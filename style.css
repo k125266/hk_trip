@@ -695,7 +695,10 @@ button.scroll-hint:focus { outline: none; }
 .rotate-prompt {
   display: none;
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 99999;
   background: var(--bg-dark);
   flex-direction: column;
@@ -703,6 +706,9 @@ button.scroll-hint:focus { outline: none; }
   justify-content: center;
   gap: 20px;
   text-align: center;
+}
+.rotate-prompt.visible {
+  display: flex;
 }
 .rotate-prompt .rotate-icon {
   font-size: 3rem;
@@ -718,7 +724,4 @@ button.scroll-hint:focus { outline: none; }
   letter-spacing: 0.2em;
   color: var(--neon-yellow);
   text-shadow: 0 0 12px rgba(255,215,0,0.5);
-}
-@media (max-height: 500px) and (orientation: landscape) {
-  .rotate-prompt { display: flex; }
 }
