@@ -23,6 +23,7 @@ body {
   line-height: 1.7;
   overflow: hidden;
   height: 100vh;
+  overscroll-behavior: none;
 }
 
 /* ── THREE-VIEW LAYOUT ── */
@@ -40,20 +41,20 @@ body {
   overflow-y: auto;
 }
 
-/* default: hero visible, others below */
-#view-hero       { z-index: 5; transform: translateY(0);    opacity: 1; }
-#view-itinerary  { z-index: 4; transform: translateY(100%); opacity: 1; }
-#view-budget     { z-index: 3; transform: translateY(100%); opacity: 1; }
+/* default: hero visible, others non-interactive */
+#view-hero       { z-index: 5; transform: translateY(0);    opacity: 1; pointer-events: auto; }
+#view-itinerary  { z-index: 4; transform: translateY(100%); opacity: 1; pointer-events: none; }
+#view-budget     { z-index: 3; transform: translateY(100%); opacity: 1; pointer-events: none; }
 
 /* page = itinerary */
 body[data-page="itinerary"] #view-hero      { transform: translateY(-100%); opacity: 0; pointer-events: none; }
-body[data-page="itinerary"] #view-itinerary { transform: translateY(0); }
-body[data-page="itinerary"] #view-budget    { transform: translateY(100%); }
+body[data-page="itinerary"] #view-itinerary { transform: translateY(0);     pointer-events: auto; }
+body[data-page="itinerary"] #view-budget    { transform: translateY(100%);  pointer-events: none; }
 
 /* page = budget */
 body[data-page="budget"] #view-hero         { transform: translateY(-100%); opacity: 0; pointer-events: none; }
 body[data-page="budget"] #view-itinerary    { transform: translateY(-100%); opacity: 0; pointer-events: none; }
-body[data-page="budget"] #view-budget       { transform: translateY(0); }
+body[data-page="budget"] #view-budget       { transform: translateY(0);     pointer-events: auto; }
 
 /* ── PAGE NAV BAR ── */
 .page-nav {
