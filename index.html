@@ -469,8 +469,84 @@
     .deco-1 { font-size: 18vw; top: 5vh;  right: -2vw; }
     .deco-2 { font-size: 12vw; bottom: 15vh; left: -1vw; }
 
+    /* ── PERIOD SECTION LABEL ── */
+    .period-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 48px 0 32px;
+      padding-left: 100px;
+    }
+    .period-divider::before {
+      content: '';
+      flex: 1;
+      max-width: 0;
+    }
+    .period-label {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 5px 18px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    .period-label.morning {
+      color: var(--neon-yellow);
+      border: 1px solid rgba(255,215,0,0.5);
+      text-shadow: 0 0 10px rgba(255,215,0,0.6);
+      box-shadow: 0 0 14px rgba(255,215,0,0.15);
+    }
+    .period-label.noon {
+      color: var(--neon-red);
+      border: 1px solid rgba(255,42,42,0.5);
+      text-shadow: 0 0 10px rgba(255,42,42,0.6);
+      box-shadow: 0 0 14px rgba(255,42,42,0.15);
+    }
+    .period-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, currentColor, transparent);
+      opacity: 0.2;
+    }
+
+    /* ── INFO ROWS (route / cost / tip) ── */
+    .info-rows {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+    .info-tag {
+      flex-shrink: 0;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 2px 9px;
+      border-radius: 999px;
+      border: 1px solid;
+      margin-top: 2px;
+    }
+    .info-tag.route  { color: var(--neon-teal);   border-color: var(--neon-teal);   background: rgba(0,229,204,0.08); }
+    .info-tag.cost   { color: var(--neon-yellow);  border-color: var(--neon-yellow); background: rgba(255,215,0,0.08); }
+    .info-tag.tip    { color: var(--neon-pink);    border-color: var(--neon-pink);   background: rgba(255,79,163,0.08); }
+    .info-row-text {
+      color: #c8b89a;
+    }
+    .info-row-text strong {
+      color: var(--text-main);
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
+      .period-divider { padding-left: 70px; }
       .timeline::before { left: 52px; }
       .tl-item { grid-template-columns: 52px 1fr; gap: 0 18px; }
       .tl-item::before { left: 44px; }
@@ -512,6 +588,12 @@
 
     <div class="timeline">
 
+      <!-- ── 上午 ── -->
+      <div class="period-divider">
+        <span class="period-label morning">🎒 上午　Morning</span>
+        <span class="period-line" style="color:var(--neon-yellow)"></span>
+      </div>
+
       <!-- 1 -->
       <div class="tl-item color-yellow">
         <div class="tl-time">10:00<br/>—<br/>11:30</div>
@@ -519,43 +601,100 @@
           <div class="card-header">
             <div class="card-emoji">✈️</div>
             <div class="card-meta">
-              <div class="card-location">Tsim Sha Tsui · 尖沙咀</div>
-              <div class="card-title">抵達與奢華入住（順路買神級蛋撻）</div>
+              <div class="card-location">Airport → Tsim Sha Tsui · 機場 → 尖沙咀</div>
+              <div class="card-title">【交通】香港機場 ➔ 瑰麗酒店</div>
             </div>
           </div>
-          <div class="card-body">
-            機場快綫到九龍站，計程車先停 <strong>Hashtag B</strong>，買幾顆全港最紅的「拿破崙焦糖千層蛋撻」，再直達 <strong>香港瑰麗酒店</strong> 寄放行李。
-            動線完美，完全不用多走路！
-          </div>
-          <div class="card-pills">
-            <span class="pill">機場快綫 → 九龍站</span>
-            <span class="pill highlight">Hashtag B 焦糖千層蛋撻</span>
-            <span class="pill">計程車直達瑰麗</span>
+          <div class="info-rows">
+            <div class="info-row">
+              <span class="info-tag route">🚇 路線</span>
+              <span class="info-row-text">搭「<strong>機場快線</strong>」到【<strong>九龍站</strong>】，出站後直接轉搭計程車／Uber 到飯店。</span>
+            </div>
+            <div class="info-row">
+              <span class="info-tag cost">💰 費用</span>
+              <span class="info-row-text">機場快線約 <strong>$105</strong> + 車資約 <strong>$40–50</strong></span>
+            </div>
+            <div class="info-row">
+              <span class="info-tag tip">💡 提醒</span>
+              <span class="info-row-text">帶著大行李千萬別去擠地鐵，從九龍站搭車去飯店最省力。</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- 2 -->
+      <div class="tl-item color-pink">
+        <div class="tl-time">11:30<br/>—<br/>12:15</div>
+        <div class="tl-card">
+          <div class="card-header">
+            <div class="card-emoji">🥐</div>
+            <div class="card-meta">
+              <div class="card-location">Tsim Sha Tsui · 尖沙咀</div>
+              <div class="card-title">【購物】Hashtag B（尖沙咀店）</div>
+            </div>
+          </div>
+          <div class="card-body">
+            全港最紅的「拿破崙焦糖千層蛋撻」——熱騰騰出爐，隨時都在大排長龍！
+          </div>
+          <div class="info-rows">
+            <div class="info-row">
+              <span class="info-tag route">🚇 路線</span>
+              <span class="info-row-text">從飯店步行約 <strong>10 分鐘</strong>至加拿分道。</span>
+            </div>
+            <div class="info-row">
+              <span class="info-tag cost">💰 費用</span>
+              <span class="info-row-text">千層蛋撻約 <strong>$18／顆</strong></span>
+            </div>
+            <div class="info-row">
+              <span class="info-tag tip">💡 提醒</span>
+              <span class="info-row-text">這家隨時都在排隊，拿到熱騰騰的蛋撻請先忍住，因為中午的點心會吃很飽！</span>
+            </div>
+          </div>
+          <div class="card-pills">
+            <span class="pill highlight">焦糖千層蛋撻</span>
+            <span class="pill">步行可達</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 中午 ── -->
+      <div class="period-divider">
+        <span class="period-label noon">🥢 中午　Noon</span>
+        <span class="period-line" style="color:var(--neon-red)"></span>
+      </div>
+
+      <!-- 3 (原 2) -->
       <div class="tl-item color-red">
-        <div class="tl-time">11:45<br/>—<br/>13:15</div>
+        <div class="tl-time">12:30<br/>—<br/>13:30</div>
         <div class="tl-card">
           <div class="card-header">
             <div class="card-emoji">🥟</div>
             <div class="card-meta">
               <div class="card-location">Prince Edward · 太子</div>
-              <div class="card-title">米其林平價港點午餐</div>
+              <div class="card-title">【午餐】一點心 One Dim Sum</div>
             </div>
           </div>
           <div class="card-body">
-            <strong>一點心 One Dim Sum</strong>——阿姨服務親切、高評分，必吃道地蝦餃與燒賣。
-            避開正中午最熱的時段，在室內舒舒服服地享用一頓正宗廣式早午點。
+            米其林推薦平價港點，阿姨服務親切、高評分，必吃道地蝦餃與燒賣。
+          </div>
+          <div class="info-rows">
+            <div class="info-row">
+              <span class="info-tag route">🚇 路線</span>
+              <span class="info-row-text">地鐵【<strong>尖沙咀站</strong>】搭紅線 ➔【<strong>太子站</strong>】A 出口，步行 2 分鐘。</span>
+            </div>
+            <div class="info-row">
+              <span class="info-tag cost">💰 費用</span>
+              <span class="info-row-text">車資約 <strong>$6</strong> + 餐費約 <strong>$80–120</strong></span>
+            </div>
+            <div class="info-row">
+              <span class="info-tag tip">💡 提醒</span>
+              <span class="info-row-text">香港點心份量很扎實，一個人點 <strong>3–4 道</strong>通常就是極限了。餐廳冷氣開很強，記得帶件薄外套。</span>
+            </div>
           </div>
           <div class="card-pills">
             <span class="pill highlight">必吃：蝦餃 · 燒賣</span>
-            <span class="pill">約 HK$ 150 以內</span>
             <span class="pill">米其林推薦</span>
           </div>
-          <div class="transport-row">荃灣線　尖沙咀 → 太子</div>
         </div>
       </div>
 
