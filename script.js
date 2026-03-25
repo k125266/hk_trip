@@ -10,12 +10,21 @@ window.addEventListener('orientationchange', function () {
   setTimeout(checkOrientation, 100);
 });
 
+// Reset any stale horizontal scroll on load
+['view-itinerary', 'view-budget'].forEach(function (id) {
+  var el = document.getElementById(id);
+  if (el) { el.scrollLeft = 0; el.scrollTop = 0; }
+});
+
 // Page navigation
 function goTo(page) {
   document.body.dataset.page = page;
-  // reset scroll on the newly shown view
   var viewMap = { itinerary: 'view-itinerary', budget: 'view-budget' };
-  if (viewMap[page]) document.getElementById(viewMap[page]).scrollTop = 0;
+  if (viewMap[page]) {
+    var el = document.getElementById(viewMap[page]);
+    el.scrollLeft = 0;
+    el.scrollTop = 0;
+  }
 }
 
 // Hero → Itinerary
