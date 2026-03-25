@@ -691,20 +691,34 @@ button.scroll-hint:focus { outline: none; }
   .tl-card { padding: 16px 18px; }
 }
 
-/* ── LANDSCAPE MOBILE ── */
+/* ── LANDSCAPE: rotate prompt ── */
+.rotate-prompt {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: var(--bg-dark);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+}
+.rotate-prompt .rotate-icon {
+  font-size: 3rem;
+  animation: rotateHint 1.8s ease-in-out infinite;
+}
+@keyframes rotateHint {
+  0%, 100% { transform: rotate(0deg); }
+  40%       { transform: rotate(-90deg); }
+  60%       { transform: rotate(-90deg); }
+}
+.rotate-prompt p {
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--neon-yellow);
+  text-shadow: 0 0 12px rgba(255,215,0,0.5);
+}
 @media (max-height: 500px) and (orientation: landscape) {
-  .hero {
-    min-height: 100dvh;
-    padding: 12px 24px 16px;
-    justify-content: center;
-    gap: 0;
-  }
-  .hero-badge    { display: none; }
-  .hero-date     { font-size: 0.75rem; letter-spacing: 0.2em; margin-bottom: 4px; }
-  .hero-title    { font-size: 2rem; margin-bottom: 4px; }
-  .hero-subtitle { font-size: 0.8rem; margin-bottom: 10px; }
-  .hero-divider  { margin: 0 auto 10px; }
-  .hero-tags     { gap: 5px; }
-  .tag           { font-size: 0.68rem; padding: 3px 10px; }
-  .scroll-hint   { margin-top: 10px; padding: 7px 18px; font-size: 0.72rem; }
+  .rotate-prompt { display: flex; }
 }
