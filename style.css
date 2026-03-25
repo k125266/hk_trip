@@ -39,6 +39,7 @@ body {
 #view-itinerary,
 #view-budget {
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* default: hero visible, others non-interactive */
