@@ -300,7 +300,7 @@ body::before {
 .timeline::before {
   content: '';
   position: absolute;
-  left: 72px;
+  left: 86px;
   top: 0; bottom: 0;
   width: 1px;
   background: linear-gradient(
@@ -323,7 +323,7 @@ body::before {
 .tl-item::before {
   content: '';
   position: absolute;
-  left: 72px;
+  left: 86px;
   top: 22px;
   width: 17px;
   height: 17px;
@@ -686,10 +686,16 @@ button.scroll-hint:focus { outline: none; }
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
   .period-divider { padding-left: 70px; }
-  .timeline::before { left: 52px; }
-  .tl-item { padding-left: 70px; } /* 52px time col + 18px gap */
-  .tl-item::before { left: 52px; }
+  .timeline::before { left: 61px; }
+  .tl-item { padding-left: 80px; } /* 52px time col + 28px gap */
+  .tl-item::before { left: 61px; }
   .tl-time { width: 52px; font-size: 0.64rem; padding-right: 4px; }
+  /* remove dot glow on mobile — prevents neon bleed over time text */
+  .tl-item.color-red::before,
+  .tl-item.color-yellow::before,
+  .tl-item.color-teal::before,
+  .tl-item.color-pink::before,
+  .tl-item.color-blue::before { box-shadow: none; }
   .budget-grid { grid-template-columns: 1fr; }
   .tl-card { padding: 16px 18px; }
 }
