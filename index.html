@@ -36,6 +36,7 @@
         <span class="tag tag-blue">🌃 維多利亞港夜景</span>
       </div>
       <button class="scroll-hint" id="scroll-btn">向下探索</button>
+      <button class="checklist-hero-btn" id="checklist-btn">🧳 行李清單</button>
     </header>
   </div><!-- /view-hero -->
 
@@ -521,6 +522,265 @@
       <div class="footer-sub">April 7, 2025 · Solo Trip · Hong Kong Rosewood</div>
     </footer>
   </div><!-- /view-budget -->
+
+  <!-- ══ PAGE 4: CHECKLIST ══ -->
+  <div id="view-checklist">
+    <nav class="checklist-nav">
+      <button class="nav-btn nav-prev" data-to="hero">← 返回</button>
+      <div class="checklist-nav-title">🧳 行李清單</div>
+      <div style="width:80px"></div><!-- spacer -->
+    </nav>
+
+    <main class="checklist-page">
+      <div class="checklist-page-header">
+        <div class="section-label">Packing List</div>
+        <h2 class="section-title">行李清單</h2>
+      </div>
+
+      <div class="checklist-progress">
+        <div class="progress-text">打包進度</div>
+        <div class="progress-count" id="progress-count">0 / 47</div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Section 1 -->
+      <div class="checklist-section">
+        <div class="checklist-section-header color-red">🪪 絕對不能忘的「生存必備區」</div>
+        <div class="checklist-items">
+          <label class="checklist-item" for="chk-1">
+            <input class="chk" type="checkbox" id="chk-1" />
+            <div class="chk-label"><div class="item-name">護照</div><div class="item-note">確認效期有半年以上</div></div>
+          </label>
+          <label class="checklist-item" for="chk-2">
+            <input class="chk" type="checkbox" id="chk-2" />
+            <div class="chk-label"><div class="item-name">簽證</div><div class="item-note">台胞證正本，或是已經列印出來的紙本「台灣居民預辦入境登記」</div></div>
+          </label>
+          <label class="checklist-item" for="chk-3">
+            <input class="chk" type="checkbox" id="chk-3" />
+            <div class="chk-label"><div class="item-name">信用卡</div><div class="item-note">確認已綁定 Apple Pay / Google Pay，香港地鐵跟多數店家都能直接刷</div></div>
+          </label>
+          <label class="checklist-item" for="chk-4">
+            <input class="chk" type="checkbox" id="chk-4" />
+            <div class="chk-label"><div class="item-name">港幣現金</div><div class="item-note">約 500–1000 港幣，用來對付只收現金的生記粥品、一點心等傳統小店</div></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="checklist-section">
+        <div class="checklist-section-header color-teal">💻 軟體工程師的「吃飯傢伙與科技區」</div>
+        <div class="checklist-items">
+          <label class="checklist-item" for="chk-5">
+            <input class="chk" type="checkbox" id="chk-5" />
+            <div class="chk-label"><div class="item-name">筆記型電腦</div></div>
+          </label>
+          <label class="checklist-item" for="chk-6">
+            <input class="chk" type="checkbox" id="chk-6" />
+            <div class="chk-label"><div class="item-name">滑鼠</div><div class="item-note">如果有使用的習慣</div></div>
+          </label>
+          <label class="checklist-item" for="chk-7">
+            <input class="chk" type="checkbox" id="chk-7" />
+            <div class="chk-label"><div class="item-name">筆電充電器</div></div>
+          </label>
+          <label class="checklist-item" for="chk-8">
+            <input class="chk" type="checkbox" id="chk-8" />
+            <div class="chk-label"><div class="item-name">英規三腳轉接頭（G型）</div><div class="item-note">香港電壓 220V，插座是三孔方形，沒帶筆電會變磚頭！如果有很多設備要充，建議帶有延長線或多孔 USB 的款式</div></div>
+          </label>
+          <label class="checklist-item" for="chk-9">
+            <input class="chk" type="checkbox" id="chk-9" />
+            <div class="chk-label"><div class="item-name">大容量行動電源</div></div>
+          </label>
+          <label class="checklist-item" for="chk-10">
+            <input class="chk" type="checkbox" id="chk-10" />
+            <div class="chk-label"><div class="item-name">手機快充線</div><div class="item-note">建議帶 2 條，一條放飯店，一條隨身帶出門</div></div>
+          </label>
+          <label class="checklist-item" for="chk-11">
+            <input class="chk" type="checkbox" id="chk-11" />
+            <div class="chk-label"><div class="item-name">降噪耳機</div><div class="item-note">飛機上隔音，或是在飯店處理工作時能快速進入狀況</div></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="checklist-section">
+        <div class="checklist-section-header color-pink">👙 貼身與換洗衣物（4天3夜，洋蔥式穿搭）</div>
+        <div class="checklist-items">
+          <label class="checklist-item" for="chk-12">
+            <input class="chk" type="checkbox" id="chk-12" />
+            <div class="chk-label"><div class="item-name">內衣 / Bra Top</div><div class="item-note">3–4 件，香港微熱潮濕，多備一件最保險</div></div>
+          </label>
+          <label class="checklist-item" for="chk-13">
+            <input class="chk" type="checkbox" id="chk-13" />
+            <div class="chk-label"><div class="item-name">內褲</div><div class="item-note">4–5 件，強烈建議買免洗內褲，穿完直接丟，省下行李空間裝盲盒</div></div>
+          </label>
+          <label class="checklist-item" for="chk-14">
+            <input class="chk" type="checkbox" id="chk-14" />
+            <div class="chk-label"><div class="item-name">襪子</div><div class="item-note">4 雙，搭配妳的好走運動鞋</div></div>
+          </label>
+          <label class="checklist-item" for="chk-15">
+            <input class="chk" type="checkbox" id="chk-15" />
+            <div class="chk-label"><div class="item-name">睡衣</div><div class="item-note">1 套，香港飯店冷氣通常無法調高溫度，建議帶薄長袖或薄長褲睡衣防著涼</div></div>
+          </label>
+          <label class="checklist-item" for="chk-16">
+            <input class="chk" type="checkbox" id="chk-16" />
+            <div class="chk-label"><div class="item-name">上衣</div><div class="item-note">3–4 件，以輕薄透氣的短袖或薄長袖為主，可以直接挑選符合妳專屬個人色彩的單品，拍照氣色更好</div></div>
+          </label>
+          <label class="checklist-item" for="chk-17">
+            <input class="chk" type="checkbox" id="chk-17" />
+            <div class="chk-label"><div class="item-name">下身</div><div class="item-note">2–3 件，寬褲或長裙，方便在 PMQ 爬坡或市區走動</div></div>
+          </label>
+          <label class="checklist-item" for="chk-18">
+            <input class="chk" type="checkbox" id="chk-18" />
+            <div class="chk-label"><div class="item-name">薄外套</div><div class="item-note">1–2 件，西裝外套、風衣或針織衫。必帶！香港商場、地鐵跟辦公室的冷氣超級凍</div></div>
+          </label>
+          <label class="checklist-item" for="chk-19">
+            <input class="chk" type="checkbox" id="chk-19" />
+            <div class="chk-label"><div class="item-name">好走的鞋子</div><div class="item-note">1 雙，直接穿在腳上即可</div></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="checklist-section">
+        <div class="checklist-section-header color-blue">💄 女生最重要的「保養彩妝與盥洗區」</div>
+        <div class="checklist-category-label">── 盥洗與保養</div>
+        <div class="checklist-items">
+          <label class="checklist-item" for="chk-20">
+            <input class="chk" type="checkbox" id="chk-20" />
+            <div class="chk-label"><div class="item-name">牙刷與牙膏</div><div class="item-note">現在很多飯店不提供一次性備品，自己帶最安全</div></div>
+          </label>
+          <label class="checklist-item" for="chk-21">
+            <input class="chk" type="checkbox" id="chk-21" />
+            <div class="chk-label"><div class="item-name">卸妝產品</div><div class="item-note">卸妝油／水／膏，建議分裝或帶旅行組</div></div>
+          </label>
+          <label class="checklist-item" for="chk-22">
+            <input class="chk" type="checkbox" id="chk-22" />
+            <div class="chk-label"><div class="item-name">洗面乳</div></div>
+          </label>
+          <label class="checklist-item" for="chk-23">
+            <input class="chk" type="checkbox" id="chk-23" />
+            <div class="chk-label"><div class="item-name">保濕三件組</div><div class="item-note">化妝水、精華液、乳液／面霜。香港冷氣房極乾，保濕一定要夠</div></div>
+          </label>
+          <label class="checklist-item" for="chk-24">
+            <input class="chk" type="checkbox" id="chk-24" />
+            <div class="chk-label"><div class="item-name">護髮油</div><div class="item-note">飯店吹風機吹完通常很毛躁，一小罐能拯救髮質</div></div>
+          </label>
+          <label class="checklist-item" for="chk-25">
+            <input class="chk" type="checkbox" id="chk-25" />
+            <div class="chk-label"><div class="item-name">身體乳液</div><div class="item-note">可視個人習慣攜帶</div></div>
+          </label>
+        </div>
+        <div class="checklist-category-label">── 彩妝全家餐</div>
+        <div class="checklist-items">
+          <label class="checklist-item" for="chk-26">
+            <input class="chk" type="checkbox" id="chk-26" />
+            <div class="chk-label"><div class="item-name">防曬乳</div><div class="item-note">臉部與身體</div></div>
+          </label>
+          <label class="checklist-item" for="chk-27">
+            <input class="chk" type="checkbox" id="chk-27" />
+            <div class="chk-label"><div class="item-name">底妝</div><div class="item-note">隔離霜、粉底液／氣墊粉餅</div></div>
+          </label>
+          <label class="checklist-item" for="chk-28">
+            <input class="chk" type="checkbox" id="chk-28" />
+            <div class="chk-label"><div class="item-name">遮瑕膏</div></div>
+          </label>
+          <label class="checklist-item" for="chk-29">
+            <input class="chk" type="checkbox" id="chk-29" />
+            <div class="chk-label"><div class="item-name">定妝產品</div><div class="item-note">蜜粉或定妝噴霧，香港潮濕，定妝必備</div></div>
+          </label>
+          <label class="checklist-item" for="chk-30">
+            <input class="chk" type="checkbox" id="chk-30" />
+            <div class="chk-label"><div class="item-name">眼妝</div><div class="item-note">眉筆、眼影、眼線、睫毛膏</div></div>
+          </label>
+          <label class="checklist-item" for="chk-31">
+            <input class="chk" type="checkbox" id="chk-31" />
+            <div class="chk-label"><div class="item-name">唇膏 / 口紅</div></div>
+          </label>
+          <label class="checklist-item" for="chk-32">
+            <input class="chk" type="checkbox" id="chk-32" />
+            <div class="chk-label"><div class="item-name">化妝工具</div><div class="item-note">美妝蛋、粉撲、刷具</div></div>
+          </label>
+          <label class="checklist-item" for="chk-33">
+            <input class="chk" type="checkbox" id="chk-33" />
+            <div class="chk-label"><div class="item-name">隱形眼鏡</div><div class="item-note">日拋請帶 5 對以上備用；長戴型請務必帶保養液與水盒</div></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="checklist-section">
+        <div class="checklist-section-header color-yellow">🦷 細節控的「個人小護理與常備藥」</div>
+        <div class="checklist-items">
+          <label class="checklist-item" for="chk-34">
+            <input class="chk" type="checkbox" id="chk-34" />
+            <div class="chk-label"><div class="item-name">牙線 / 牙間刷</div><div class="item-note">吃完燒臘或點心剔牙必備</div></div>
+          </label>
+          <label class="checklist-item" for="chk-35">
+            <input class="chk" type="checkbox" id="chk-35" />
+            <div class="chk-label"><div class="item-name">墨鏡</div><div class="item-note">遮陽兼具拍照造型神器</div></div>
+          </label>
+          <label class="checklist-item" for="chk-36">
+            <input class="chk" type="checkbox" id="chk-36" />
+            <div class="chk-label"><div class="item-name">小剪刀</div><div class="item-note">拆 LuLu 豬盲盒、剪衣服線頭立刻用得上。⚠️ 記得放托運行李，不可隨身上機</div></div>
+          </label>
+          <label class="checklist-item" for="chk-37">
+            <input class="chk" type="checkbox" id="chk-37" />
+            <div class="chk-label"><div class="item-name">個人常備藥物</div><div class="item-note">如果有每天固定要吃的藥物，請記得算好天數帶齊</div></div>
+          </label>
+          <label class="checklist-item" for="chk-38">
+            <input class="chk" type="checkbox" id="chk-38" />
+            <div class="chk-label"><div class="item-name">急救藥包</div><div class="item-note">腸胃藥、止痛藥、過敏藥、OK 繃</div></div>
+          </label>
+          <label class="checklist-item" for="chk-39">
+            <input class="chk" type="checkbox" id="chk-39" />
+            <div class="chk-label"><div class="item-name">生理用品</div><div class="item-note">衛生棉或護墊，帶幾個備用求心安</div></div>
+          </label>
+          <label class="checklist-item" for="chk-40">
+            <input class="chk" type="checkbox" id="chk-40" />
+            <div class="chk-label"><div class="item-name">棉花棒、化妝棉</div></div>
+          </label>
+          <label class="checklist-item" for="chk-41">
+            <input class="chk" type="checkbox" id="chk-41" />
+            <div class="chk-label"><div class="item-name">髮圈 / 鯊魚夾</div></div>
+          </label>
+          <label class="checklist-item" for="chk-42">
+            <input class="chk" type="checkbox" id="chk-42" />
+            <div class="chk-label"><div class="item-name">護唇膏</div></div>
+          </label>
+          <label class="checklist-item" for="chk-43">
+            <input class="chk" type="checkbox" id="chk-43" />
+            <div class="chk-label"><div class="item-name">人工淚液 / 眼藥水</div></div>
+          </label>
+          <label class="checklist-item" for="chk-44">
+            <input class="chk" type="checkbox" id="chk-44" />
+            <div class="chk-label"><div class="item-name">乾洗手 / 隨身濕紙巾</div></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="checklist-section">
+        <div class="checklist-section-header color-teal">🎒 隨身包包與其他雜項</div>
+        <div class="checklist-items">
+          <label class="checklist-item" for="chk-45">
+            <input class="chk" type="checkbox" id="chk-45" />
+            <div class="chk-label"><div class="item-name">輕便摺疊傘</div><div class="item-note">天氣預報 4/7 可能有微雨，隨身帶著以防萬一</div></div>
+          </label>
+          <label class="checklist-item" for="chk-46">
+            <input class="chk" type="checkbox" id="chk-46" />
+            <div class="chk-label"><div class="item-name">伴手禮</div><div class="item-note">準備帶去香港辦公室的台灣精緻甜點或茶葉</div></div>
+          </label>
+          <label class="checklist-item" for="chk-47">
+            <input class="chk" type="checkbox" id="chk-47" />
+            <div class="chk-label"><div class="item-name">環保購物袋</div><div class="item-note">香港塑膠袋要收費，買東西時可以用</div></div>
+          </label>
+        </div>
+      </div>
+
+    </main>
+  </div><!-- /view-checklist -->
 
   <script src="script.js"></script>
 </body>
