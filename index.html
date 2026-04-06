@@ -675,6 +675,27 @@
       box-shadow: -4px 0 16px rgba(255,79,163,0.15);
       background: rgba(255,79,163,0.05);
     }
+    .checklist-section-header.color-blue {
+      color: var(--neon-blue);
+      text-shadow: 0 0 10px rgba(0,180,255,0.5);
+      border-color: var(--neon-blue);
+      box-shadow: -4px 0 16px rgba(0,180,255,0.15);
+      background: rgba(0,180,255,0.05);
+    }
+    .checklist-section-header.color-yellow {
+      color: var(--neon-yellow);
+      text-shadow: 0 0 10px rgba(255,215,0,0.5);
+      border-color: var(--neon-yellow);
+      box-shadow: -4px 0 16px rgba(255,215,0,0.15);
+      background: rgba(255,215,0,0.05);
+    }
+    .checklist-category-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin: 20px 0 10px 2px;
+    }
 
     .checklist-items { display: flex; flex-direction: column; gap: 8px; }
 
@@ -1227,7 +1248,7 @@
       <!-- Progress -->
       <div class="checklist-progress">
         <div class="progress-text">打包進度</div>
-        <div class="progress-count" id="progress-count">0 / 19</div>
+        <div class="progress-count" id="progress-count">0 / 33</div>
         <div class="progress-bar-track">
           <div class="progress-bar-fill" id="progress-bar"></div>
         </div>
@@ -1406,11 +1427,135 @@
         </div>
       </div>
 
+      <!-- Section 4 -->
+      <div class="checklist-section">
+        <div class="checklist-section-header color-blue">💄 女生最重要的「保養彩妝與盥洗區」</div>
+
+        <div class="checklist-category-label">── 盥洗與保養</div>
+        <div class="checklist-items">
+
+          <label class="checklist-item" for="chk-20">
+            <input class="chk" type="checkbox" id="chk-20" />
+            <div class="chk-label">
+              <div class="item-name">牙刷與牙膏</div>
+              <div class="item-note">現在很多飯店不提供一次性備品，自己帶最安全</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-21">
+            <input class="chk" type="checkbox" id="chk-21" />
+            <div class="chk-label">
+              <div class="item-name">卸妝產品</div>
+              <div class="item-note">卸妝油／水／膏，建議分裝或帶旅行組</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-22">
+            <input class="chk" type="checkbox" id="chk-22" />
+            <div class="chk-label">
+              <div class="item-name">洗面乳</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-23">
+            <input class="chk" type="checkbox" id="chk-23" />
+            <div class="chk-label">
+              <div class="item-name">保濕三件組</div>
+              <div class="item-note">化妝水、精華液、乳液／面霜。香港冷氣房極乾，保濕一定要夠</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-24">
+            <input class="chk" type="checkbox" id="chk-24" />
+            <div class="chk-label">
+              <div class="item-name">護髮油</div>
+              <div class="item-note">飯店吹風機吹完通常很毛躁，一小罐能拯救髮質</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-25">
+            <input class="chk" type="checkbox" id="chk-25" />
+            <div class="chk-label">
+              <div class="item-name">身體乳液</div>
+              <div class="item-note">可視個人習慣攜帶</div>
+            </div>
+          </label>
+
+        </div>
+
+        <div class="checklist-category-label">── 彩妝全家餐</div>
+        <div class="checklist-items">
+
+          <label class="checklist-item" for="chk-26">
+            <input class="chk" type="checkbox" id="chk-26" />
+            <div class="chk-label">
+              <div class="item-name">防曬乳</div>
+              <div class="item-note">臉部與身體</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-27">
+            <input class="chk" type="checkbox" id="chk-27" />
+            <div class="chk-label">
+              <div class="item-name">底妝</div>
+              <div class="item-note">隔離霜、粉底液／氣墊粉餅</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-28">
+            <input class="chk" type="checkbox" id="chk-28" />
+            <div class="chk-label">
+              <div class="item-name">遮瑕膏</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-29">
+            <input class="chk" type="checkbox" id="chk-29" />
+            <div class="chk-label">
+              <div class="item-name">定妝產品</div>
+              <div class="item-note">蜜粉或定妝噴霧，香港潮濕，定妝必備</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-30">
+            <input class="chk" type="checkbox" id="chk-30" />
+            <div class="chk-label">
+              <div class="item-name">眼妝</div>
+              <div class="item-note">眉筆、眼影、眼線、睫毛膏</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-31">
+            <input class="chk" type="checkbox" id="chk-31" />
+            <div class="chk-label">
+              <div class="item-name">唇膏 / 口紅</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-32">
+            <input class="chk" type="checkbox" id="chk-32" />
+            <div class="chk-label">
+              <div class="item-name">化妝工具</div>
+              <div class="item-note">美妝蛋、粉撲、刷具</div>
+            </div>
+          </label>
+
+          <label class="checklist-item" for="chk-33">
+            <input class="chk" type="checkbox" id="chk-33" />
+            <div class="chk-label">
+              <div class="item-name">隱形眼鏡</div>
+              <div class="item-note">日拋請帶 5 對以上備用；長戴型請務必帶保養液與水盒</div>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
     </main>
   </div><!-- /panel-checklist -->
 
   <script>
-    const TOTAL = 19;
+    const TOTAL = 33;
 
     // ── Tab switching ──
     document.querySelectorAll('.tab-btn').forEach(btn => {
